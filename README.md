@@ -1,2 +1,2 @@
 # The-island
- Videogame Demo
+ Demo
