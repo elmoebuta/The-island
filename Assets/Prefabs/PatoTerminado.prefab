@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1612768625533466292}
   - component: {fileID: 727819194947139967}
   - component: {fileID: 1483376308328230010}
+  - component: {fileID: 5688467086833300122}
   m_Layer: 0
   m_Name: PatoTerminado
   m_TagString: Untagged
@@ -538,6 +539,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007be8090f64a014b910abc9a942a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5688467086833300122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151935919796249402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aad9f9b76a86e46aa247464f0ffa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 3
 --- !u!1 &4383379121799749997
 GameObject:
   m_ObjectHideFlags: 0
