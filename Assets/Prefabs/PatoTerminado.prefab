@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007be8090f64a014b910abc9a942a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
 --- !u!114 &5688467086833300122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 3
+  canvasFeedPrefab: {fileID: 3377936488956694502, guid: 4c0dfa5858bd5694db80fa5d778518a3, type: 3}
 --- !u!1 &4383379121799749997
 GameObject:
   m_ObjectHideFlags: 0

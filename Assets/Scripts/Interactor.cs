@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
+using TMPro;
+using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
@@ -13,17 +12,21 @@ public class Interactor : MonoBehaviour
     private bool isEating = false; // Indica si el pato está comiendo actualmente.
     private AnimalMovement animalMovement; // Referencia al script AnimalMovement.
     private bool hasInteracted = false;
-
+    public GameObject canvasFeedPrefab; // Referencia al prefab del CanvasFeed.
+    private GameObject canvasFeedInstance;
+    private bool comido = false;
     private void Start()
     {
         duckAnimator = GetComponent<Animator>();
         animalMovement = GetComponent<AnimalMovement>();
+        
     }
 
     private void Update()
     {
         // Detecta si el personaje principal está dentro de la distancia de interacción.
         Collider[] colliders = Physics.OverlapSphere(transform.position, interactionDistance);
+        
 
         if (isEating == false) // Verifica que no se haya interactuado previamente.
         {
@@ -33,6 +36,11 @@ public class Interactor : MonoBehaviour
                 {
                     // Calcula la distancia entre el pato y el jugador.
                     float distance = Vector3.Distance(transform.position, col.transform.position);
+                    if (canvasFeedInstance == null && comido==false)
+                    {
+                        Debug.Log("Se creo el canvas");
+                        canvasFeedInstance = Instantiate(canvasFeedPrefab, transform.position, Quaternion.identity);
+                    }
 
                     // Si el jugador presiona la tecla de interacción (por ejemplo, "F") y está dentro de la distancia de interacción, ejecuta el cuack del pato.
                     if (Input.GetKeyDown(KeyCode.F) && distance <= interactionDistance)
@@ -41,8 +49,9 @@ public class Interactor : MonoBehaviour
 
                         // Cambiar la transición a "GoEat".
                         duckAnimator.SetInteger("GoEat", 1);
-                        
-                        
+
+                        Destroy(canvasFeedInstance);
+                        comido = true;
                         duckAnimator.SetInteger("GoWalk", 0);
                         duckAnimator.SetInteger("GoIdle", 0);
                         
@@ -58,8 +67,19 @@ public class Interactor : MonoBehaviour
                     }
 
                     Debug.Log(isEating);
+
+                    
                 }
+
+                else
+                {
+
+                }
+               
+
             }
+
+
         }
 
 
@@ -92,6 +112,20 @@ public class Interactor : MonoBehaviour
             else
             {
                 Debug.Log("Estado actual no es Eat.");
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Destruye el canvasFeedInstance cuando el jugador sale del área del Collider.
+            if (canvasFeedInstance != null)
+            {
+                Debug.Log("Se destruyó el canvas");
+                Destroy(canvasFeedInstance);
+                canvasFeedInstance = null;
             }
         }
     }
