@@ -15,9 +15,6 @@ public class CanvasFrasesController : MonoBehaviour
     {
         MostrarSiguienteFrase();
         Invoke("sacarFondo", 5f);
-        
-
-
     }
 
     void Update()
