@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.42221254, g: 0.64316183, b: 0.793691, a: 1}
+  m_IndirectSpecularColor: {r: 0.42222098, g: 0.64365846, b: 0.7936594, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -379,7 +379,7 @@ MonoBehaviour:
   npcPrefabs:
   - {fileID: 4339840462367556368, guid: 4f7b05046395fdb45ab5748b5e9eeedd, type: 3}
   - {fileID: 107234129900652903, guid: f014198dbb1c9b84cb78d8053bdda68d, type: 3}
-  numberOfNPCs: 100
+  numberOfCopiesPerPrefab: 5
   terrain: {fileID: 210583768}
   maxRadius: 210
   minHeightAboveTerrain: 2
@@ -423,8 +423,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f1208c2825997aa4dbecafb155290331, type: 2}
+  m_sharedMaterial: {fileID: 7017134243387378657, guid: f1208c2825997aa4dbecafb155290331, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
