@@ -44,6 +44,7 @@ public class LoadSceneController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 loadAsync.allowSceneActivation = true;
+                AudioManager.Instance.NextTrack();
             }
         }
     }
