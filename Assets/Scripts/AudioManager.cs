@@ -54,4 +54,8 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = musicTracks[currentTrackIndex];
         musicSource.Play();
     }
+    public string SongName()
+    {
+        return musicSource.name;
+    }
 }
