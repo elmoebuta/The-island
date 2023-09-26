@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 2499868352561570739}
   - component: {fileID: -8018223168875874010}
   - component: {fileID: 6369285466084105588}
+  - component: {fileID: 4072056534598495218}
   m_Layer: 0
   m_Name: piedraAzul
   m_TagString: Untagged
@@ -278,6 +279,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0.125, z: 0}
+--- !u!114 &4072056534598495218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339840462367556368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523f94042d78f834fa3a6636f432bc6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: blue
+  destroyRadius: 2
+  playerTag: Player
 --- !u!1 &4955399645946846247
 GameObject:
   m_ObjectHideFlags: 0
