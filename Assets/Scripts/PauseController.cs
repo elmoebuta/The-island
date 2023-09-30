@@ -12,12 +12,12 @@ public class PauseController : MonoBehaviour
     private GameObject camera;
 
 
-    public bool enPause;
+    public bool enPause = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && enPause == false)
         {
             Pause();
         }
