@@ -26,18 +26,22 @@ public class Rock : MonoBehaviour
             if (col.CompareTag(playerTag))
             {
                 // Incrementa el contador correspondiente según el color.
-                if (color == "blue")
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    GameManager.contadorAzul++;
-                }
-                else if (color == "pink")
-                {
-                    GameManager.contadorRosado++;
-                }
+                    if (color == "blue")
+                    {
+                        GameManager.contadorAzul++;
+                    }
+                    else if (color == "pink")
+                    {
+                        GameManager.contadorRosado++;
+                    }
 
-                // Destruye el objeto "Rock" si el jugador está en el rango.
-                Destroy(gameObject);
-                break; // Sal del bucle ya que el objeto "Rock" se ha destruido.
+                    // Destruye el objeto "Rock" si el jugador está en el rango.
+                    Destroy(gameObject);
+                    break; // Sal del bucle ya que el objeto "Rock" se ha destruido.}
+
+                }
             }
         }
     }
