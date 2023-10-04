@@ -16,7 +16,7 @@ public class Rock : MonoBehaviour
     private void Update()
     {
         // Imprime la posición del objeto "Rock" y el color.
-        Debug.Log("Posición de Rock: " + transform.position);
+       // Debug.Log("Posición de Rock: " + transform.position);
 
         // Busca todos los objetos con el tag "Player" en el rango de destrucción.
         Collider[] colliders = Physics.OverlapSphere(transform.position, destroyRadius);

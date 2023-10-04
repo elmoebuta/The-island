@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
-
+    public MissionManager MissionManager;
     public float interactionDistance = 3f; // Distancia máxima de interacción.
     private Animator duckAnimator; // Animator del pato.
     private bool isEating = false; // Indica si el pato está comiendo actualmente.
@@ -45,8 +45,6 @@ public class Interactor : MonoBehaviour
                     // Si el jugador presiona la tecla de interacción (por ejemplo, "F") y está dentro de la distancia de interacción, ejecuta el cuack del pato.
                     if (Input.GetKeyDown(KeyCode.F) && distance <= interactionDistance)
                     {
-                        //Debug.Log("Pato: Cuack");
-
                         // Cambiar la transición a "GoEat".
                         duckAnimator.SetInteger("GoEat", 1);
 
@@ -57,18 +55,18 @@ public class Interactor : MonoBehaviour
                         
                         animalMovement.isActive = false;
                         isEating = true;
-                         // Marca que la interacción ya ha ocurrido.
+                        MissionManager.ContadorAnimalesComiendo++;
+                        Debug.Log("El contador de aniames es: " + MissionManager.ContadorAnimalesComiendo);
+                        // Marca que la interacción ya ha ocurrido.
 
-                      //  Debug.Log("Interacción realizada");
+                        //  Debug.Log("Interacción realizada");
 
                         // Sal del bucle foreach.
-                        
+
                         // Desactivar el movimiento del pato.
                     }
 
                     Debug.Log(isEating);
-
-                    
                 }
 
                 else

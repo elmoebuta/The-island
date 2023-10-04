@@ -152,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a49f2fd79653345812faf815391a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractorController: {fileID: 0}
+  textoMisionMusica: {fileID: 663944712}
+  textoMisionRoca: {fileID: 302920751}
+  textoMisionAnimales: {fileID: 1003519166}
 --- !u!4 &45129331
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,7 +1216,7 @@ GameObject:
   - component: {fileID: 663944713}
   - component: {fileID: 663944712}
   m_Layer: 5
-  m_Name: TextoMision2 (1)
+  m_Name: TextoMision3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
