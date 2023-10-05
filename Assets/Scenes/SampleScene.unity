@@ -152,10 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a49f2fd79653345812faf815391a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractorController: {fileID: 0}
+  ContadorAnimalesComiendo: 0
   textoMisionMusica: {fileID: 663944712}
   textoMisionRoca: {fileID: 302920751}
   textoMisionAnimales: {fileID: 1003519166}
+  ValidadorMisionAnimales: {fileID: 1326565997}
 --- !u!4 &45129331
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &193118469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2571,7 +2572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1326565998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3021,7 +3022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1943071936
 RectTransform:
   m_ObjectHideFlags: 0

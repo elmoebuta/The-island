@@ -8,8 +8,10 @@ public class MissionManager : MonoBehaviour
     public int ContadorAnimalesComiendo = 0;
     private AudioSource audioSource;
     public TextMeshProUGUI textoMisionMusica;
+
     public TextMeshProUGUI textoMisionRoca;
     public TextMeshProUGUI textoMisionAnimales;
+    public GameObject ValidadorMisionAnimales;
 
     private string cancionActual = ""; // Guarda el nombre de la canción actual
     private int countCanciones = 1;  
@@ -25,14 +27,20 @@ public class MissionManager : MonoBehaviour
             Debug.LogError("Este GameObject debe tener un componente AudioSource adjunto.");
         }
     }
-
+ 
     private void Update()
     {
         MisionEscucharMusica();
-        MisionAcariciarAnimales();
+        if (GameManager.contadorAlimentar <= 5)
+        {
+            MisionAcariciarAnimales();
+        }
+        else
+        {
+            ValidadorMisionAnimales.SetActive(true);
+        }
  
     }
-
 
     public void MisionEscucharMusica()
     {
@@ -53,7 +61,7 @@ public class MissionManager : MonoBehaviour
 
     public void MisionAcariciarAnimales()
     {
-        textoMisionAnimales.text = "Alimenta a animales " + ContadorAnimalesComiendo + "/5";
+        textoMisionAnimales.text = "Alimenta a animales " + GameManager.contadorAlimentar + "/5";
     }
 
     public void MisionRecolectarRocas()

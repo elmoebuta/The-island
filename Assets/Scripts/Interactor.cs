@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
-    public MissionManager MissionManager;
     public float interactionDistance = 3f; // Distancia máxima de interacción.
     private Animator duckAnimator; // Animator del pato.
     private bool isEating = false; // Indica si el pato está comiendo actualmente.
@@ -38,7 +37,6 @@ public class Interactor : MonoBehaviour
                     float distance = Vector3.Distance(transform.position, col.transform.position);
                     if (canvasFeedInstance == null && comido==false)
                     {
-                        Debug.Log("Se creo el canvas");
                         canvasFeedInstance = Instantiate(canvasFeedPrefab, transform.position, Quaternion.identity);
                     }
 
@@ -55,8 +53,9 @@ public class Interactor : MonoBehaviour
                         
                         animalMovement.isActive = false;
                         isEating = true;
-                        MissionManager.ContadorAnimalesComiendo++;
-                        Debug.Log("El contador de aniames es: " + MissionManager.ContadorAnimalesComiendo);
+                        GameManager.contadorAlimentar++;
+                        Debug.Log(GameManager.contadorAlimentar);
+                       
                         // Marca que la interacción ya ha ocurrido.
 
                         //  Debug.Log("Interacción realizada");
@@ -65,8 +64,6 @@ public class Interactor : MonoBehaviour
 
                         // Desactivar el movimiento del pato.
                     }
-
-                    Debug.Log(isEating);
                 }
 
                 else
@@ -88,12 +85,9 @@ public class Interactor : MonoBehaviour
             AnimatorStateInfo stateInfo = duckAnimator.GetCurrentAnimatorStateInfo(0);
             if (stateInfo.IsName("eat"))
             {
-                Debug.Log("Estado actual: Eat");
-                Debug.Log("Normalized Time: " + stateInfo.normalizedTime);
 
                 if (stateInfo.normalizedTime >= 0.9f)
                 {
-                    Debug.Log("Final de la animación Eat alcanzado.");
 
                     // Reiniciar la variable "GoEat".
                     duckAnimator.SetInteger("GoEat", 0);
@@ -107,10 +101,7 @@ public class Interactor : MonoBehaviour
                     // Reactivar el movimiento del pato.
                 }
             }
-            else
-            {
-                Debug.Log("Estado actual no es Eat.");
-            }
+
         }
     }
 
@@ -121,7 +112,6 @@ public class Interactor : MonoBehaviour
             // Destruye el canvasFeedInstance cuando el jugador sale del área del Collider.
             if (canvasFeedInstance != null)
             {
-                Debug.Log("Se destruyó el canvas");
                 Destroy(canvasFeedInstance);
                 canvasFeedInstance = null;
             }
