@@ -40,7 +40,7 @@ public class Interactor : MonoBehaviour
                         canvasFeedInstance = Instantiate(canvasFeedPrefab, transform.position, Quaternion.identity);
                     }
 
-                    Debug.Log("contador alimentar" + GameManager.contadorAlimentar);
+                    
 
                     // Si el jugador presiona la tecla de interacción (por ejemplo, "F") y está dentro de la distancia de interacción, ejecuta el cuack del pato.
                     if (Input.GetKeyDown(KeyCode.F) && distance <= interactionDistance && comido ==false)
@@ -56,7 +56,7 @@ public class Interactor : MonoBehaviour
                         
                         animalMovement.isActive = false;
                         isEating = true;
-                        GameManager.contadorAlimentar++;
+                        
                         Debug.Log(GameManager.contadorAlimentar);
                        
                         // Marca que la interacción ya ha ocurrido.
