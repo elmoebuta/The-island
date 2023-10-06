@@ -46,6 +46,7 @@ public class Rock : MonoBehaviour
 
             Debug.Log("contadorAzul: " + GameManager.contadorAzul);
             Debug.Log("contadorRosado: " + GameManager.contadorRosado);
+            Debug.Log("contador alimentar" + GameManager.contadorAlimentar);
         }
     }
 }
