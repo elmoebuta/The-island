@@ -40,14 +40,17 @@ public class Interactor : MonoBehaviour
                         canvasFeedInstance = Instantiate(canvasFeedPrefab, transform.position, Quaternion.identity);
                     }
 
+                    
+
                     // Si el jugador presiona la tecla de interacción (por ejemplo, "F") y está dentro de la distancia de interacción, ejecuta el cuack del pato.
-                    if (Input.GetKeyDown(KeyCode.F) && distance <= interactionDistance)
+                    if (Input.GetKeyDown(KeyCode.F) && distance <= interactionDistance && comido ==false)
                     {
                         // Cambiar la transición a "GoEat".
                         duckAnimator.SetInteger("GoEat", 1);
 
                         Destroy(canvasFeedInstance);
                         comido = true;
+                        GameManager.contadorAlimentar++;
                         duckAnimator.SetInteger("GoWalk", 0);
                         duckAnimator.SetInteger("GoIdle", 0);
                         
@@ -68,7 +71,9 @@ public class Interactor : MonoBehaviour
 
                 else
                 {
-
+                    Destroy(canvasFeedInstance);
+                    canvasFeedInstance = null;
+                    
                 }
                
 
