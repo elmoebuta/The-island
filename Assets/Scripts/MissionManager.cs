@@ -8,16 +8,23 @@ public class MissionManager : MonoBehaviour
     public int ContadorAnimalesComiendo = 0;
     private AudioSource audioSource;
     public TextMeshProUGUI textoMisionMusica;
+    private bool musicaMisionReproducida = false;
+    public GameObject confirmationPrompt;
 
     public TextMeshProUGUI textoMisionRoca;
     public TextMeshProUGUI textoMisionAnimales;
     public GameObject ValidadorMisionAnimales;
 
+    private AudioSource componenteAudio;
+    [SerializeField] private AudioClip musicaMision;
+
     private string cancionActual = ""; // Guarda el nombre de la canción actual
     private int countCanciones = 1;  
 
+
     private void Start()
     {
+        componenteAudio = GetComponent<AudioSource>();
         audioSource = AudioManager.Instance.musicSource;
         cancionActual = audioSource.clip.name;
         Debug.Log("La cancion es: " + cancionActual);
@@ -31,15 +38,31 @@ public class MissionManager : MonoBehaviour
     private void Update()
     {
         MisionEscucharMusica();
-        if (GameManager.contadorAlimentar <= 5)
+        if (GameManager.contadorAlimentar < 5)
         {
             MisionAcariciarAnimales();
         }
         else
         {
+            if (!musicaMisionReproducida)
+            {
+                StartCoroutine(MisionCompletada());
+
+                componenteAudio.PlayOneShot(musicaMision);
+                musicaMisionReproducida = true;
+                
+            }
             ValidadorMisionAnimales.SetActive(true);
         }
  
+    }
+
+    public IEnumerator MisionCompletada()
+    {
+        confirmationPrompt.SetActive(true);
+        yield return new WaitForSeconds(5);
+        confirmationPrompt.SetActive(false);
+
     }
 
     public void MisionEscucharMusica()
