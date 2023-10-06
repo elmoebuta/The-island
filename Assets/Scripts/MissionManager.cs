@@ -38,7 +38,7 @@ public class MissionManager : MonoBehaviour
     private void Update()
     {
         MisionEscucharMusica();
-        if (GameManager.contadorAlimentar < 5)
+        if (GameManager.contadorAlimentar <= 4)
         {
             MisionAcariciarAnimales();
         }
@@ -46,6 +46,7 @@ public class MissionManager : MonoBehaviour
         {
             if (!musicaMisionReproducida)
             {
+                MisionAcariciarAnimales();
                 StartCoroutine(MisionCompletada());
 
                 componenteAudio.PlayOneShot(musicaMision);
