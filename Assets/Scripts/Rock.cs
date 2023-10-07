@@ -7,6 +7,8 @@ public class Rock : MonoBehaviour
     public string color = "Red"; // Variable pública para el color del objeto.
     public float destroyRadius = 5f; // Radio de destrucción cuando el jugador se acerca.
     public string playerTag = "Player"; // Tag del jugador.
+    public GameObject canvasFeedPrefab; // Referencia al prefab del CanvasFeed.
+    private GameObject canvasFeedInstance;
 
     private void Start()
     {
@@ -25,8 +27,12 @@ public class Rock : MonoBehaviour
         {
             if (col.CompareTag(playerTag))
             {
+                if (canvasFeedInstance == null )
+                {
+                    canvasFeedInstance = Instantiate(canvasFeedPrefab, transform.position, Quaternion.identity);
+                }
                 // Incrementa el contador correspondiente según el color.
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     if (color == "blue")
                     {
@@ -39,9 +45,16 @@ public class Rock : MonoBehaviour
 
                     // Destruye el objeto "Rock" si el jugador está en el rango.
                     Destroy(gameObject);
+                    Destroy(canvasFeedInstance);
                     break; // Sal del bucle ya que el objeto "Rock" se ha destruido.}
 
                 }
+            }
+            else
+            {
+                Destroy(canvasFeedInstance);
+                canvasFeedInstance = null;
+
             }
 
             Debug.Log("contadorAzul: " + GameManager.contadorAzul);

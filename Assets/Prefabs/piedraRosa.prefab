@@ -128,6 +128,7 @@ MonoBehaviour:
   color: pink
   destroyRadius: 2
   playerTag: Player
+  canvasFeedPrefab: {fileID: 3377936488956694502, guid: bb10046c986a7aa4ca7ec8912f4f882d, type: 3}
 --- !u!1 &4080805963475715830
 GameObject:
   m_ObjectHideFlags: 0
