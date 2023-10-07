@@ -7,20 +7,32 @@ public class MissionManager : MonoBehaviour
 {
     public int ContadorAnimalesComiendo = 0;
     private AudioSource audioSource;
+    public GameObject ValidadorMisionMusica;
     public TextMeshProUGUI textoMisionMusica;
-    private bool musicaMisionReproducida = false;
+
+
+    private bool musicaMisionAnimalesReproducida = false;
+    private bool musicaMisionRosadoReproducida = false;
+    private bool musicaMisionCelesteReproducida = false;
+    private bool musicaMisionMusicaReproducida = false;
+
+
     public GameObject confirmationPrompt;
 
-    public TextMeshProUGUI textoMisionRoca;
-    public TextMeshProUGUI textoMisionAnimales;
+    public GameObject ValidadorMisionRocaRosas;
+    public TextMeshProUGUI textoMisionRocaRosada;
+
+    public GameObject ValidadorMisionRocaCeleste;
+    public TextMeshProUGUI textoMisionRocaCeleste;
+
     public GameObject ValidadorMisionAnimales;
+    public TextMeshProUGUI textoMisionAnimales;
 
     private AudioSource componenteAudio;
     [SerializeField] private AudioClip musicaMision;
 
     private string cancionActual = ""; // Guarda el nombre de la canción actual
     private int countCanciones = 1;  
-
 
     private void Start()
     {
@@ -38,19 +50,37 @@ public class MissionManager : MonoBehaviour
     private void Update()
     {
         MisionEscucharMusica();
+
+        if (GameManager.contadorRosado <= 2)
+        {
+            MisionRecolectarRocasRosadas();
+        }
+        else
+        {
+            if (!musicaMisionRosadoReproducida)
+            {
+                MisionRecolectarRocasRosadas();
+                StartCoroutine(MisionCompletada());
+
+                componenteAudio.PlayOneShot(musicaMision);
+                musicaMisionRosadoReproducida = true;
+            }
+            ValidadorMisionRocaRosas.SetActive(true);
+        }
+
         if (GameManager.contadorAlimentar <= 4)
         {
             MisionAcariciarAnimales();
         }
         else
         {
-            if (!musicaMisionReproducida)
+            if (!musicaMisionAnimalesReproducida)
             {
                 MisionAcariciarAnimales();
                 StartCoroutine(MisionCompletada());
 
                 componenteAudio.PlayOneShot(musicaMision);
-                musicaMisionReproducida = true;
+                musicaMisionAnimalesReproducida = true;
                 
             }
             ValidadorMisionAnimales.SetActive(true);
@@ -63,7 +93,6 @@ public class MissionManager : MonoBehaviour
         confirmationPrompt.SetActive(true);
         yield return new WaitForSeconds(5);
         confirmationPrompt.SetActive(false);
-
     }
 
     public void MisionEscucharMusica()
@@ -88,8 +117,13 @@ public class MissionManager : MonoBehaviour
         textoMisionAnimales.text = "Alimenta a animales " + GameManager.contadorAlimentar + "/5";
     }
 
-    public void MisionRecolectarRocas()
+    public void MisionRecolectarRocasCelestes()
     {
+        textoMisionRocaCeleste.text = "recolecta rocas celestes " + GameManager.contadorAzul + "/3";
+    }
+    public void MisionRecolectarRocasRosadas()
+    {
+        textoMisionRocaRosada.text = "recolecta rocas rosadas " + GameManager.contadorRosado + "/3";
     }
 
     private void CompletarMision()
