@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 4464508438409072868}
   - component: {fileID: 4368835143075925813}
   - component: {fileID: 8031230707783707662}
+  - component: {fileID: -2340344328055127627}
   m_Layer: 0
   m_Name: BueyTerminado
   m_TagString: Untagged
@@ -341,6 +342,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007be8090f64a014b910abc9a942a2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
+--- !u!114 &-2340344328055127627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110622873265878150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32aad9f9b76a86e46aa247464f0ffa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 3
+  canvasFeedPrefab: {fileID: 3377936488956694502, guid: 4c0dfa5858bd5694db80fa5d778518a3, type: 3}
 --- !u!1 &2139332056392703134
 GameObject:
   m_ObjectHideFlags: 0
