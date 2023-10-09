@@ -49,7 +49,21 @@ public class MissionManager : MonoBehaviour
  
     private void Update()
     {
-        MisionEscucharMusica();
+        if (countCanciones <= 1)
+        {
+            MisionEscucharMusica();
+        }
+        else
+        {
+            if (!musicaMisionMusicaReproducida)
+            {
+                MisionEscucharMusica();
+                StartCoroutine(MisionCompletada());
+                componenteAudio.PlayOneShot(musicaMision);
+                musicaMisionMusicaReproducida = true;
+            }
+            ValidadorMisionMusica.SetActive(true);
+        }
 
         if (GameManager.contadorRosado <= 2)
         {
@@ -66,6 +80,23 @@ public class MissionManager : MonoBehaviour
                 musicaMisionRosadoReproducida = true;
             }
             ValidadorMisionRocaRosas.SetActive(true);
+        }
+
+        if (GameManager.contadorAzul <= 2)
+        {
+            MisionRecolectarRocasCelestes();
+        }
+        else
+        {
+            if (!musicaMisionRosadoReproducida)
+            {
+                MisionRecolectarRocasCelestes();
+                StartCoroutine(MisionCompletada());
+
+                componenteAudio.PlayOneShot(musicaMision);
+                musicaMisionCelesteReproducida = true;
+            }
+            ValidadorMisionRocaCeleste.SetActive(true);
         }
 
         if (GameManager.contadorAlimentar <= 4)
@@ -104,11 +135,6 @@ public class MissionManager : MonoBehaviour
             cancionActual = audioSource.clip.name;
             Debug.Log("Canción cambiada a: " + cancionActual);
             countCanciones++;
-
-            if (countCanciones >= 2)
-            {
-                CompletarMision();
-            }
         }
     }
 
