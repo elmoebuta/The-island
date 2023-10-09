@@ -43,5 +43,6 @@ public class PauseController : MonoBehaviour
     public void Salir()
     {
         SceneManager.LoadScene("MenuInicio");
+        AudioManager.Instance.ChangeMusic(1);
     }
 }
