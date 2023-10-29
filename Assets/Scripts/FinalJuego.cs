@@ -8,6 +8,8 @@ public class FinalJuego : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.ChangeMusic(3);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
     }
 
