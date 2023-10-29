@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AltarComplete : MonoBehaviour
+public class AltarCompletePink : MonoBehaviour
 {
     public GameObject rockPrefab; // Arrastra el objeto de la roca aquí desde el Inspector
     public float activationDistance = 3.0f;
@@ -19,12 +19,12 @@ public class AltarComplete : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, activationDistance);
         foreach (Collider collider in colliders)
         {
-            
-            if (collider.CompareTag("Player") && GameManager.contadorAzul >= 3)
+
+            if (collider.CompareTag("Player") && GameManager.contadorRosado >= 3)
             {
-                
+
                 GenerateRocks();
-                
+
                 rocksGenerated = true; // Marca que las rocas ya se han generado
             }
         }
