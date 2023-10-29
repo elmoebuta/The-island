@@ -34,7 +34,11 @@ public class AltarComplete : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector3 spawnPosition = transform.position + new Vector3(0, i, 0);
+            // Ajusta la posición de generación para que las rocas aparezcan en la cima de la montaña.
+            Vector3 spawnPosition = new Vector3(transform.position.x + i * 0.5f,
+                                                transform.position.y , // Ajusta la altura
+                                                transform.position.z  +i * 0.5f);
+
             Instantiate(rockPrefab, spawnPosition, Quaternion.identity);
         }
     }
