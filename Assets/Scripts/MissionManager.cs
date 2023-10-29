@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MissionManager : MonoBehaviour
     private AudioSource audioSource;
     public GameObject ValidadorMisionMusica;
     public TextMeshProUGUI textoMisionMusica;
+    public int ContarMisiones = 0;
 
 
     private bool musicaMisionAnimalesReproducida = false;
@@ -49,6 +51,11 @@ public class MissionManager : MonoBehaviour
  
     private void Update()
     {
+        if (ContarMisiones>=4)
+        {
+            Invoke("JuegoCompletado", 10f);
+        }
+
         if (countCanciones <= 1)
         {
             MisionEscucharMusica();
@@ -61,6 +68,7 @@ public class MissionManager : MonoBehaviour
                 StartCoroutine(MisionCompletada());
                 componenteAudio.PlayOneShot(musicaMision);
                 musicaMisionMusicaReproducida = true;
+                ContarMisiones++;
             }
             ValidadorMisionMusica.SetActive(true);
         }
@@ -78,6 +86,7 @@ public class MissionManager : MonoBehaviour
 
                 componenteAudio.PlayOneShot(musicaMision);
                 musicaMisionRosadoReproducida = true;
+                ContarMisiones++;
             }
             ValidadorMisionRocaRosas.SetActive(true);
         }
@@ -88,13 +97,14 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
-            if (!musicaMisionRosadoReproducida)
+            if (!musicaMisionCelesteReproducida)
             {
                 MisionRecolectarRocasCelestes();
                 StartCoroutine(MisionCompletada());
 
                 componenteAudio.PlayOneShot(musicaMision);
                 musicaMisionCelesteReproducida = true;
+                ContarMisiones++;
             }
             ValidadorMisionRocaCeleste.SetActive(true);
         }
@@ -112,7 +122,7 @@ public class MissionManager : MonoBehaviour
 
                 componenteAudio.PlayOneShot(musicaMision);
                 musicaMisionAnimalesReproducida = true;
-                
+                ContarMisiones++;
             }
             ValidadorMisionAnimales.SetActive(true);
         }
@@ -145,16 +155,14 @@ public class MissionManager : MonoBehaviour
 
     public void MisionRecolectarRocasCelestes()
     {
-        textoMisionRocaCeleste.text = "recolecta rocas celestes " + GameManager.contadorAzul + "/3";
+        textoMisionRocaCeleste.text = "Recolecta rocas celestes " + GameManager.contadorAzul + "/3";
     }
     public void MisionRecolectarRocasRosadas()
     {
-        textoMisionRocaRosada.text = "recolecta rocas rosadas " + GameManager.contadorRosado + "/3";
+        textoMisionRocaRosada.text = "Recolecta rocas rosadas " + GameManager.contadorRosado + "/3";
     }
-
-    private void CompletarMision()
+    public void JuegoCompletado()
     {
-        // Implementa las acciones que se deben realizar cuando se completa la misión aquí.
-        Debug.Log("Misión completada!");
+        SceneManager.LoadScene("JuegoCompletado");
     }
 }
