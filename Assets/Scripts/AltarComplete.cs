@@ -22,7 +22,7 @@ public class AltarComplete : MonoBehaviour
             
             if (collider.CompareTag("Player") && GameManager.contadorAzul >= 3)
             {
-                
+                GameManager.contadorAzulDejado = 3;
                 GenerateRocks();
                 
                 rocksGenerated = true; // Marca que las rocas ya se han generado

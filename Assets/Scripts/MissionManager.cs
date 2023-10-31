@@ -73,7 +73,7 @@ public class MissionManager : MonoBehaviour
             ValidadorMisionMusica.SetActive(true);
         }
 
-        if (GameManager.contadorRosado <= 2)
+        if (GameManager.contadorRosadoDejado <= 2)
         {
             MisionRecolectarRocasRosadas();
         }
@@ -91,7 +91,7 @@ public class MissionManager : MonoBehaviour
             ValidadorMisionRocaRosas.SetActive(true);
         }
 
-        if (GameManager.contadorAzul <= 2)
+        if (GameManager.contadorAzulDejado <= 2)
         {
             MisionRecolectarRocasCelestes();
         }
@@ -155,11 +155,11 @@ public class MissionManager : MonoBehaviour
 
     public void MisionRecolectarRocasCelestes()
     {
-        textoMisionRocaCeleste.text = "Recolecta rocas celestes " + GameManager.contadorAzul + "/3";
+        textoMisionRocaCeleste.text = "Recolecta rocas celestes " + GameManager.contadorAzulDejado + "/3";
     }
     public void MisionRecolectarRocasRosadas()
     {
-        textoMisionRocaRosada.text = "Recolecta rocas rosadas " + GameManager.contadorRosado + "/3";
+        textoMisionRocaRosada.text = "Recolecta rocas rosadas " + GameManager.contadorRosadoDejado + "/3";
     }
     public void JuegoCompletado()
     {

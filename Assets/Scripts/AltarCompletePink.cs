@@ -22,7 +22,7 @@ public class AltarCompletePink : MonoBehaviour
 
             if (collider.CompareTag("Player") && GameManager.contadorRosado >= 3)
             {
-
+                GameManager.contadorRosadoDejado = 3;
                 GenerateRocks();
 
                 rocksGenerated = true; // Marca que las rocas ya se han generado
@@ -42,4 +42,6 @@ public class AltarCompletePink : MonoBehaviour
             Instantiate(rockPrefab, spawnPosition, Quaternion.identity);
         }
     }
+
+
 }
