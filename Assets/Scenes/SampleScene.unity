@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.42222098, g: 0.64365846, b: 0.7936594, a: 1}
+  m_IndirectSpecularColor: {r: 0.42221254, g: 0.64316183, b: 0.793691, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,6 +156,7 @@ MonoBehaviour:
   ContadorAnimalesComiendo: 0
   ValidadorMisionMusica: {fileID: 1729235815}
   textoMisionMusica: {fileID: 663944712}
+  ContarMisiones: 0
   confirmationPrompt: {fileID: 386163979}
   ValidadorMisionRocaRosas: {fileID: 193118468}
   textoMisionRocaRosada: {fileID: 302920751}
@@ -1376,7 +1377,7 @@ PrefabInstance:
       addedObject: {fileID: 612268108}
     - targetCorrespondingSourceObject: {fileID: 7925908207704047568, guid: eb80d2daad8ef654a94c319a3c16c6f6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 612268109}
+      addedObject: {fileID: 612268112}
   m_SourcePrefab: {fileID: 100100000, guid: eb80d2daad8ef654a94c319a3c16c6f6, type: 3}
 --- !u!1 &612268104 stripped
 GameObject:
@@ -1431,7 +1432,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &612268109
+--- !u!114 &612268112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1440,10 +1441,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 612268104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08976ba4957ae44e8b676fcea4ba6cf, type: 3}
+  m_Script: {fileID: 11500000, guid: afaacdb8ef082c046ba69646b8834179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPrefab: {fileID: 0}
+  rockPrefab: {fileID: 107234129900652903, guid: f014198dbb1c9b84cb78d8053bdda68d, type: 3}
   activationDistance: 3
 --- !u!1 &636117565
 GameObject:

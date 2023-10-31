@@ -16,6 +16,8 @@ public class AltarCompletePink : MonoBehaviour
             return;
         }
 
+        
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, activationDistance);
         foreach (Collider collider in colliders)
         {
