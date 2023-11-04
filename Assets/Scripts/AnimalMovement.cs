@@ -9,7 +9,7 @@ public class AnimalMovement : MonoBehaviour
     private float idleTime = 5f; // Tiempo que se queda quieto
     private bool isWalking = false; // Indica si el animal está caminando actualmente
     private float timer = 0f; // Temporizador para rastrear el tiempo
-    private float moveSpeed = 0.5f; // Velocidad de movimiento
+    private float moveSpeed = 1f; // Velocidad de movimiento
     private float rotationSpeed = 90f; // Velocidad de rotación
     private Vector3 moveDirection; // Dirección de movimiento actual
     private Vector2 center = new Vector2(250f, 250f); // Centro de la circunferencia
