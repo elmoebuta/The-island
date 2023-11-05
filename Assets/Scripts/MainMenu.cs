@@ -7,6 +7,16 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Principal Menu")]
+    [SerializeField]
+    private Button jugarBtn = null;
+
+    [SerializeField]
+    private Button opcionesBtn = null;
+    
+    [SerializeField]
+    private Button salirBtn = null;
+
     [Header("Volume Settings")]
     [SerializeField]
     private TMP_Text volumeTextValue = null;
@@ -31,6 +41,13 @@ public class MainMenu : MonoBehaviour
     private int defaultSen = 4;
 
     public int mainControllerSen = 4;
+
+    public void Start()
+    {
+        jugarBtn.gameObject.transform.position = new Vector3(95.41f,203.85f,0);
+        opcionesBtn.gameObject.transform.position = new Vector3(73.61f, 138.53f, 0);
+        salirBtn.gameObject.transform.position = new Vector3(102.22f, 75.14f, 0);
+    }
 
     public void CargarEscenaJuego(string nombreEscena)
     {
